@@ -76,7 +76,7 @@ fieldset {
  * Allow only vertical resizing of textareas.
  */
 
-/* this is where your code starts */
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #fff9e6;
@@ -88,7 +88,7 @@ body {
 header {
   background-color: #55a9ca;
   color: #ffffff;
-  padding: 20px;
+  padding: 20px 0 0 0; /* Top 20px, bottom 0 */
   text-align: center;
 }
 
@@ -107,8 +107,54 @@ main {
   max-width: 800px;
   margin: auto;
   background-color: #fff;
-  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.nav-bar {
+  background-color: #002F66;  /* dark blue */
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-btn {
+  background-color: #003366;      /* Dark blue */
+  color: white;
+  padding: 15px 30px;
+  margin: 0;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+/* Remove extra spacing in nav */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #56A9C7;
+  padding-bottom: 0;
+}
+
+/* Hover effect */
+.nav-btn:hover {
+  background-color: #336699;
+  transform: scale(1.1);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.nav-btn.pulse {
+  animation: pulse 0.4s ease;
 }
 
 footer {
@@ -121,22 +167,38 @@ footer {
   bottom: 0;
 }
 
+.blue-button {
+  display: inline-block;
+  background-color: #003366;   /* Dark Blue */
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5px 5px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 60px;
+  transition: background-color 0.3s ease;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
 
+.blue-button:hover {
+  background-color: #55a9ca;
+}
 
 .image-row {
   display: flex;
-  justify-content: center;  /* Center the images horizontally */
+  justify-content: center;
   gap: 20px;
   align-items: center;
 }
 
 .image-row img {
-  width: 45%;               /* Adjust the size as needed */
-  height: 300px;             /* Maintain aspect ratio */
+  width: 45%;
+  height: 300px;
   object-fit: cover;
 }
 
-/* This is where the code ends */
+
 
 textarea {
   resize: vertical;
