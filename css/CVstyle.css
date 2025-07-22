@@ -1,0 +1,48 @@
+.dash-list {
+  list-style-type: none; /* Removes the default bullet point */
+  padding-left: 1.5em; /* Adjust this value to control indentation */
+}
+
+.dash-list li {
+  position: relative; /* Needed for positioning the ::before pseudo-element */
+  margin-bottom: 0.5em; /* Add some space between list items */
+}
+
+.dash-list li::before {
+  content: "-"; /* The character you want to use as a bullet */
+  position: absolute; /* Allows precise positioning */
+  left: -1.5em; /* Adjust this to move the dash left relative to the list item text */
+  top: 0; /* Align with the top of the text */
+  /* You can also adjust font-size, color, etc., here if needed */
+}
+
+.education-header-container {
+  display: flex; /* Makes the container a flex container */
+  align-items: center; /* Vertically centers items within the container */
+  flex-wrap: wrap; /* Allows items to wrap onto the next line if space is limited */
+  margin-bottom: 0.5em; /* Adds a small space below the header line */
+}
+
+/* Specific styling for the education header line */
+.education-header-container {
+  justify-content: space-between; /* Pushes the first item to the left, last item to the right */
+}
+
+/* New container for the date and logo to keep them grouped on the right */
+.date-logo-group {
+  display: flex; /* Make this a flex container */
+  align-items: center; /* Vertically center the date and logo within this group */
+  gap: 0.8em; /* Adds space between the date and the logo */
+  font-weight: bold;
+}
+
+.education-text,
+.education-date {
+  margin: 0; /* Remove default paragraph margins to prevent extra spacing */
+  white-space: nowrap; /* Prevents the text from wrapping onto multiple lines */
+}
+
+.university-logo {
+  width: 100px; /* Maintain aspect ratio */
+  height: auto;
+}

@@ -190,12 +190,26 @@ footer {
   justify-content: center;
   gap: 20px;
   align-items: center;
+  flex-wrap: wrap; /* Allow images to wrap on smaller screens */
+  margin-bottom: 30px;
 }
 
-.image-row img {
-  width: 45%;
-  height: 300px;
-  object-fit: cover;
+/* Style for the picture element */
+.image-row picture {
+  display: block; /* Ensures it behaves like a block element for sizing */
+  width: 300px; /* Base width for the picture container */
+  height: 360px; /* Base height for the picture container */
+  max-width: 100%; /* Ensure responsiveness */
+  overflow: hidden; /* Hide any overflow from object-fit */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Style for the actual img tag inside the picture */
+.image-row picture img {
+  display: block; /* Remove extra space below image */
+  width: 100%; /* Make image fill its picture container */
+  height: 100%; /* Make image fill its picture container */
+  object-fit: cover; /* Crop image to cover the area without distortion */
 }
 
 
@@ -368,4 +382,5 @@ textarea {
     page-break-after: avoid;
   }
 }
+
 
