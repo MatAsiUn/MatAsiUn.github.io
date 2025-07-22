@@ -38,8 +38,17 @@
   <h2>Nice to meet you</h2>
 
   <div class="image-row">
-    <img src="images/DSC04834.JPEG" alt="Photo 1">
-    <img src="images/IMG_1782.jpg" alt="Photo 2">
+    <!-- First Image with WebP fallback -->
+    <picture>
+      <source srcset="images/Compressed_Index_Picture1.webp" type="image/webp">
+      <img src="images/Compressed_Index_Picture1.jpg" alt="Mateo standing on a street with mountains in the background">
+    </picture>
+
+    <!-- Second Image with WebP fallback -->
+    <picture>
+      <source srcset="images/Compressed_Index_Picture2.webp" type="image/webp">
+      <img src="images/Compressed_Index_Picture2.jpg" alt="Mateo standing in a garden with a fence and trees">
+    </picture>
   </div>
   <p>Hello, my name is Mateo Asin, I am an undergraduate mathematics student at the University of Warwick looking to
   enter the finance industry this summer.</p>
@@ -51,7 +60,7 @@
   I am looking to do a masters in something to do with Analysis.</p>
 
   <p> Please feel free to browse my website. You can find different ways to contact me on the contact section.</p>
-  
+
 <h2> Hobbies and Interests</h2>
   <p> First and foremost, I have a deep love for mathematics. There's something incredibly satisfying about the logic and structure that math brings. Whether it’s solving a tricky equation, exploring new theories, or applying mathematical principles to solve real-world problems, math sharpens my mind and encourages critical thinking. The beauty of numbers and the satisfaction of finding the solution to a complex problem never gets old, and I always find new ways to challenge myself.</p>
 
