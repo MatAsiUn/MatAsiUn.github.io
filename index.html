@@ -1,70 +1,127 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mateo Asin Unlu - Home</title>
+  <title>Mateo Asin - Home</title>
+  <script>
+    // Pick the theme before the page draws: the saved choice, otherwise the computer's setting.
+    (function () {
+      let theme = null;
+      try { theme = localStorage.getItem("theme"); } catch (error) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
+  <meta name="description" content="Mateo Asin, mathematics student at the University of Warwick.">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
 
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <meta name="theme-color" content="#fff9e6">
 </head>
 
 <body>
 
-<header>
-<h1>Mateo Asin</h1>
-  <nav class="nav-bar">
-    <a href="index.html" class="nav-btn">Home</a>
-    <a href="cv.html" class="nav-btn">CV</a>
-    <a href="tutoring.html" class="nav-btn">Tutoring</a>
-    <a href="contact.html" class="nav-btn">Contact</a>
-  </nav>
-</header>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">MA</span>
+      <span class="brand-text">
+        <strong>Mateo Asin</strong>
+      </span>
+    </a>
 
-<main>
-  <h2>Nice to meet you</h2>
+    <nav class="nav" aria-label="Pages">
+      <a href="index.html" class="chip" aria-current="page">Home</a>
+      <a href="cv.html" class="chip">CV</a>
+      <a href="tutoring.html" class="chip">Tutoring</a>
+      <a href="contact.html" class="chip">Contact</a>
+    </nav>
 
-  <div class="image-row">
-    <!-- First Image with WebP fallback -->
-    <picture>
-      <img src="images/Compressed_Index_Picture1.jpg" alt="Mateo standing on a street with mountains in the background">
-    </picture>
+    <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path fill="currentColor" d="M21 14.5A9 9 0 0 1 9.5 3a.6.6 0 0 0-.8-.7A10 10 0 1 0 21.7 15.3a.6.6 0 0 0-.7-.8Z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.5" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </g>
+      </svg>
+    </button>
+  </header>
 
-    <!-- Second Image with WebP fallback -->
-    <picture>
-      <img src="images/Compressed_Index_Picture2.jpg" alt="Mateo standing in a garden with a fence and trees">
-    </picture>
-  </div>
-  <p>Hello, my name is Mateo Asin, I am an undergraduate mathematics student at the University of Warwick.</p>
+  <main class="page">
+    <section class="hero card home-hero">
+      <div>
+        <h1>Nice to meet you</h1>
+        <p class="lead">Hello, my name is Mateo Asin, I am an undergraduate mathematics student at the University of Warwick.</p>
 
-  <p>I am currently in my 4th and final year of an MMath degree with my favourite modules being Financial
-    Mathematics and Stochastic Processes. </p>
+        <p>I am currently in my 4th and final year of an MMath degree with my favourite modules being Financial
+          Mathematics and Stochastic Processes.</p>
 
-  <p> Please feel free to browse my website. You can find different ways to contact me on the contact section.</p>
+        <p>Please feel free to browse my website. You can find different ways to contact me on the contact section.</p>
 
-<h2> Hobbies and Interests</h2>
-  <p> First and foremost, I have a deep love for mathematics. There's something incredibly satisfying about the logic
-    and structure that maths brings. Whether it’s solving a tricky equation, exploring new theories, or applying mathematical principles to solve real-world problems, math sharpens my mind and encourages critical thinking. The beauty of numbers and the satisfaction of finding the solution to a complex problem never gets old, and I always find new ways to challenge myself.</p>
+        <div class="button-row">
+          <a class="pill-button" href="cv.html">View my CV</a>
+          <a class="pill-button secondary" href="contact.html">Contact me</a>
+        </div>
+      </div>
 
-  <p> Another hobby that keeps me energized is traveling. The chance to explore new places, learn about different
-    cultures, and immerse myself in fresh experiences is something I truly treasure. Traveling allows me to broaden
-    my horizons, discover unique traditions, and meet people from all over the world. I’m always looking for the next
-    destination.</p><p> </p>
+      <div class="photo-pair">
+        <picture>
+          <source srcset="images/Compressed_Index_Picture1.webp" type="image/webp">
+          <img src="images/Compressed_Index_Picture1.jpg" alt="Mateo standing on a street with mountains in the background" width="960" height="720">
+        </picture>
+        <picture>
+          <source srcset="images/Compressed_Index_Picture2.webp" type="image/webp">
+          <img src="images/Compressed_Index_Picture2.jpg" alt="Mateo standing in a garden with a fence and trees" width="600" height="739">
+        </picture>
+      </div>
+    </section>
 
-</main>
+    <section class="card section">
+      <h2>Hobbies and Interests</h2>
+
+      <div class="tile-grid">
+        <article class="tile">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M5 6h14M5 12h14M9 18h6M12 15v6"/>
+            </svg>
+          </span>
+          <h3>Mathematics</h3>
+          <p>First and foremost, I have a deep love for mathematics. There's something incredibly satisfying about the logic
+            and structure that maths brings. Whether it’s solving a tricky equation, exploring new theories, or applying mathematical principles to solve real-world problems, math sharpens my mind and encourages critical thinking. The beauty of numbers and the satisfaction of finding the solution to a complex problem never gets old, and I always find new ways to challenge myself.</p>
+        </article>
+
+        <article class="tile">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3Z"/>
+            </svg>
+          </span>
+          <h3>Travelling</h3>
+          <p>Another hobby that keeps me energized is traveling. The chance to explore new places, learn about different
+            cultures, and immerse myself in fresh experiences is something I truly treasure. Traveling allows me to broaden
+            my horizons, discover unique traditions, and meet people from all over the world. I’m always looking for the next
+            destination.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">Tip: use the <kbd>←</kbd> <kbd>→</kbd> arrow keys to move between pages</footer>
 
   <script src="js/app.js"></script>
 

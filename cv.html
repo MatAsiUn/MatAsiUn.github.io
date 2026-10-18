@@ -1,163 +1,216 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mateo Asin Unlu - CV</title>
+  <title>Mateo Asin - CV</title>
+  <script>
+    // Pick the theme before the page draws: the saved choice, otherwise the computer's setting.
+    (function () {
+      let theme = null;
+      try { theme = localStorage.getItem("theme"); } catch (error) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/CVstyle.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
+  <meta name="description" content="Curriculum Vitae of Mateo Asin: education, work experience and skills.">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
 
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <meta name="theme-color" content="#fff9e6">
 </head>
+
 <body>
-<header>
-  <h1>Mateo Asin</h1>
-  <nav class="nav-bar">
-    <a href="index.html" class="nav-btn">Home</a>
-    <a href="cv.html" class="nav-btn">CV</a>
-    <a href="tutoring.html" class="nav-btn">Tutoring</a>
-    <a href="contact.html" class="nav-btn">Contact</a>
-  </nav>
-</header>
 
-<main>
-  <h2>Curriculum Vitae</h2>
-  <h3>Education</h3>
-  <div class="education-header-container">
-    <p class="education-text"><strong>University of Warwick</strong> - Mathematics</p>
-    <div class="date-logo-group"> <!-- New wrapper for date and logo -->
-      <p class="education-date">October 2022 - July 2026</p>
-      <!-- Replace the src with your actual logo URL -->
-      <img src="images/University_of_Warwick_logo.svg" alt="Missing Logo" class="university-logo">
-    </div>
-  </div>
+  <header class="topbar has-sections">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">MA</span>
+      <span class="brand-text">
+        <strong>Mateo Asin</strong>
+      </span>
+    </a>
 
-  <p> I am currently studying Mathematics with a Year abroad (G-107) at the University of Warwick. I really
-    enjoy it. It has given me the analytical toolset to overcome any challenge. I am especially interested in the
-    more applied areas of mathematics, especially optimisation and financial mathematics.</p>
+    <nav class="nav" aria-label="Pages">
+      <a href="index.html" class="chip">Home</a>
+      <a href="cv.html" class="chip" aria-current="page">CV</a>
+      <a href="tutoring.html" class="chip">Tutoring</a>
+      <a href="contact.html" class="chip">Contact</a>
+    </nav>
 
-  <p> First year average - 81%</p>
+    <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path fill="currentColor" d="M21 14.5A9 9 0 0 1 9.5 3a.6.6 0 0 0-.8-.7A10 10 0 1 0 21.7 15.3a.6.6 0 0 0-.7-.8Z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.5" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </g>
+      </svg>
+    </button>
 
-  <p> Second Year average - 84% </p>
+    <!-- Appears once the section links in the intro card scroll out of view -->
+    <nav id="section-nav" class="section-nav" aria-label="CV sections (header)">
+      <a class="chip" href="#education">Education</a>
+      <a class="chip" href="#work">Work Experience</a>
+      <a class="chip" href="#other">Other Skills</a>
+    </nav>
+    <div class="section-progress" aria-hidden="true"><span id="section-progress-fill"></span></div>
+  </header>
 
-  <p> Third Year average - 78% </p>
+  <!-- Download icon, reused by every download button below -->
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <symbol id="icon-download" viewBox="0 0 24 24">
+      <path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
 
-  <p>This is a link to my second year essay on p-adic numbers. I am proud of it as it was selected as an example essay
-    for the next year's cohort. It shows my abilities to condense down a complicated topic into something that's easier
-    to
-    understand.
-  </p>
-  <a href="Second_Year_Essay.pdf" target="_blank"><i class="fa-solid fa-download"></i> Download P-adics Essay</a>
+  <main class="page">
+    <section class="hero card">
+      <h1>Curriculum Vitae</h1>
+      <nav id="jump-links" class="jump-links" aria-label="CV sections">
+        <a class="chip" href="#education">Education</a>
+        <a class="chip" href="#work">Work Experience</a>
+        <a class="chip" href="#other">Other Skills</a>
+      </nav>
+    </section>
 
-  <p> Please feel free to contact me for more details about my academic studies or if you wish to view my transcript</p>
+    <!-- Education -->
+    <section class="card section" id="education">
+      <h2>Education</h2>
 
-  <div class="education-header-container">
-    <p class="education-text"><strong>Universidad Complutense Madrid</strong> - Year of Study Abroad</p>
-    <div class="date-logo-group"> <!-- New wrapper for date and logo -->
-      <p class="education-date">September 2024 - May 2025</p>
-      <!-- Replace the src with your actual logo URL -->
-      <img src="images/Escudo_de_la_Universidad_Complutense_de_Madrid.svg" alt="Missing Logo" class="university-logo"
-           style="width: 75px; height: auto;">
-      </div>
-    </div>
-
-  <p> I undertook a year of study abroad in Madrid. It has been a great opportunity to immerse myself
-  in a different culture and see how mathematics is taught from a different perspective. I felt that it has really
-    broadened my horizons, and it has been an experience I will never forget.</p>
-
-  <h3>Work Experience</h3>
-
-  <div class="education-header-container">
-    <p class="education-text"><strong>University of Warwick</strong> - Teaching Supervisor</p>
-    <div class="date-logo-group"> <!-- New wrapper for date and logo -->
-      <p class="education-date">October 2025 - June 2026</p>
-      <!-- Replace the src with your actual logo URL -->
-      <img src="images/University_of_Warwick_logo.svg" alt="Missing Logo" class="university-logo" style="width: 85px;
-        height: auto;">
-    </div>
-  </div>
-  <p>- Led and mentored two groups (10 total students) in first-year mathematics, focusing on mastery of core concepts
-    and
-    problem-solving techniques.</p>
-  <p>- Translated complex mathematical principles into clear, understandable explanations</p>
-  <p>- I was required to mark the students' homework submission and return relevant individualised feedback for each
-    submission.
-  </p>
-
-  <div class="education-header-container">
-    <p class="education-text"><strong>International Maritime Organisation</strong> - Finance Intern</p>
-    <div class="date-logo-group"> <!-- New wrapper for date and logo -->
-      <p class="education-date">June 2025 - July 2025</p>
-      <!-- Replace the src with your actual logo URL -->
-      <img src="images/imo-logo-svg-vector.svg" alt="Missing Logo" class="university-logo" style="width: 85px;
-        height: auto;">
-    </div>
-  </div>
-  <p>- Was tasked with analysing existing customer data on a database on SAP, with the goal of reducing bloat and
-    standardising entries.</p>
-  <p>- Through careful analysis I identified and flagged more than 90% of customer data that was inactive or duplicated
-  in the dataset.</p>
-  <p>- Removed unnecessary data and introduced a new field to further categorise remaining data.</p>
-  <p>- Utilised Microsoft PowerPoint to make a professional presentation that accurately conveyed my findings and
-    proposals for process changes to improve data hygiene going forward.</p>
-  <p>- Utilized Excel for professional data management. This included the development of VBA Macros to automate some
-    repetitive tasks in my workflow.</p>
-
-
-  <h3>Other Skills and Leadership Experience</h3>
-
-
-  <div class="education-header-container">
-  <p class="education-text"><strong>Hexa Racing F1 in Schools</strong> - Finance Intern</p>
-        <div class="date-logo-group"> <!-- New wrapper for date and logo -->
-          <p class="education-date">September 2020 - May 2021</p>
-          <!-- Replace the src with your actual logo URL -->
-          <img src="images/Hexa%20Racing%20Logo.jpg" alt="Missing Logo" class="university-logo"
-               style="width: 75px; height: auto;">
+      <article class="tile entry">
+        <div class="entry-head">
+          <div class="logo-box">
+            <img src="images/University_of_Warwick_logo.svg" alt="University of Warwick logo">
+          </div>
+          <p class="entry-title"><strong>University of Warwick</strong> <span>Mathematics</span></p>
+          <span class="date-pill">October 2022 - July 2026</span>
         </div>
-  </div>
 
-    <p> This was a project we did in secondary school where we had to design and build a miniature race car powered
-      by a small CO2 cartridge.</p>
+        <p>I am currently studying Mathematics with a Year abroad (G-107) at the University of Warwick. I really
+          enjoy it. It has given me the analytical toolset to overcome any challenge. I am especially interested in the
+          more applied areas of mathematics, especially optimisation and financial mathematics.</p>
 
-    <p> It was very enjoyable. It taught me a lot about working in a team and about time management.</p>
+        <ul class="stats">
+          <li><span class="label">First year average</span><span class="value">81%</span></li>
+          <li><span class="label">Second Year average</span><span class="value">84%</span></li>
+          <li><span class="label">Third Year average</span><span class="value">78%</span></li>
+        </ul>
 
-    <p> If you wish to learn more,
-      <a href="https://www.instagram.com/f1teamhexa/?hl=en">here is a link to our instagram page</a>.</p>
+        <p>This is a link to my second year essay on p-adic numbers. I am proud of it as it was selected as an example essay
+          for the next year's cohort. It shows my abilities to condense down a complicated topic into something that's easier
+          to understand.</p>
 
-<p> <strong> Excel projects</strong></p>
+        <p><a class="pill-button" href="Second_Year_Essay.pdf" target="_blank"><svg width="18" height="18" aria-hidden="true"><use href="#icon-download"/></svg> Download P-adics Essay</a></p>
 
-<p> I am also an advanced user of Excel. In addition to having used it professionally during my time at the IMO. I
-  also use Excel a lot for personal projects as well as to keep track of my
-  personal finances. Below I have attached download links to the Excel document I use to keep track of my personal
-  finances while at university. I find it really helpful to know how my money is being spent. I have inputted dummy
-  data into one so you can have an idea of what the spreadsheet looks like and how it can be helpful. I have also
-  attatched a blank one if anyone wants to use it to keep track of their own personal finances. </p>
+        <p>Please feel free to contact me for more details about my academic studies or if you wish to view my transcript</p>
+      </article>
 
-  <p><a href="Dummy%20Data%20Costs%20Sheet.xlsx" download><i class="fa-solid fa-download"></i> Dummy Data Costs
-    Sheet</a></p>
+      <article class="tile entry">
+        <div class="entry-head">
+          <div class="logo-box">
+            <img src="images/Escudo_de_la_Universidad_Complutense_de_Madrid.svg" alt="Universidad Complutense Madrid crest">
+          </div>
+          <p class="entry-title"><strong>Universidad Complutense Madrid</strong> <span>Year of Study Abroad</span></p>
+          <span class="date-pill">September 2024 - May 2025</span>
+        </div>
 
+        <p>I undertook a year of study abroad in Madrid. It has been a great opportunity to immerse myself
+          in a different culture and see how mathematics is taught from a different perspective. I felt that it has really
+          broadened my horizons, and it has been an experience I will never forget.</p>
+      </article>
+    </section>
 
+    <!-- Work Experience -->
+    <section class="card section" id="work">
+      <h2>Work Experience</h2>
 
+      <article class="tile entry">
+        <div class="entry-head">
+          <div class="logo-box">
+            <img src="images/University_of_Warwick_logo.svg" alt="University of Warwick logo">
+          </div>
+          <p class="entry-title"><strong>University of Warwick</strong> <span>Teaching Supervisor</span></p>
+          <span class="date-pill">October 2025 - June 2026</span>
+        </div>
 
+        <ul class="dot-list">
+          <li>Led and mentored two groups (10 total students) in first-year mathematics, focusing on mastery of core concepts
+            and problem-solving techniques.</li>
+          <li>Translated complex mathematical principles into clear, understandable explanations</li>
+          <li>I was required to mark the students' homework submission and return relevant individualised feedback for each
+            submission.</li>
+        </ul>
+      </article>
 
+      <article class="tile entry">
+        <div class="entry-head">
+          <div class="logo-box">
+            <img src="images/imo-logo-svg-vector.svg" alt="International Maritime Organisation logo">
+          </div>
+          <p class="entry-title"><strong>International Maritime Organisation</strong> <span>Finance Intern</span></p>
+          <span class="date-pill">June 2025 - July 2025</span>
+        </div>
 
-    <p><a href="Blank%20Costs%20Sheet.xlsx" download><i class="fa-solid fa-download"></i> Blank Data Costs Sheet</a></p>
+        <ul class="dot-list">
+          <li>Was tasked with analysing existing customer data on a database on SAP, with the goal of reducing bloat and
+            standardising entries.</li>
+          <li>Through careful analysis I identified and flagged more than 90% of customer data that was inactive or duplicated
+            in the dataset.</li>
+          <li>Removed unnecessary data and introduced a new field to further categorise remaining data.</li>
+          <li>Utilised Microsoft PowerPoint to make a professional presentation that accurately conveyed my findings and
+            proposals for process changes to improve data hygiene going forward.</li>
+          <li>Utilized Excel for professional data management. This included the development of VBA Macros to automate some
+            repetitive tasks in my workflow.</li>
+        </ul>
+      </article>
+    </section>
 
-</main>
+    <!-- Other Skills -->
+    <section class="card section" id="other">
+      <h2>Other Skills</h2>
+
+      <article class="tile entry">
+        <div class="entry-head">
+          <div class="logo-box icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="16" rx="3"/>
+              <path d="M3 10h18M3 15h18M9 4v16"/>
+            </svg>
+          </div>
+          <p class="entry-title"><strong>Excel projects</strong></p>
+        </div>
+
+        <p>I am also an advanced user of Excel. In addition to having used it professionally during my time at the IMO. I
+          also use Excel a lot for personal projects as well as to keep track of my
+          personal finances. Below I have attached download links to the Excel document I use to keep track of my personal
+          finances while at university. I find it really helpful to know how my money is being spent. I have inputted dummy
+          data into one so you can have an idea of what the spreadsheet looks like and how it can be helpful. I have also
+          attatched a blank one if anyone wants to use it to keep track of their own personal finances.</p>
+
+        <div class="button-row">
+          <a class="pill-button" href="Dummy%20Data%20Costs%20Sheet.xlsx" download><svg width="18" height="18" aria-hidden="true"><use href="#icon-download"/></svg> Dummy Data Costs Sheet</a>
+          <a class="pill-button secondary" href="Blank%20Costs%20Sheet.xlsx" download><svg width="18" height="18" aria-hidden="true"><use href="#icon-download"/></svg> Blank Data Costs Sheet</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">Tip: use the <kbd>←</kbd> <kbd>→</kbd> arrow keys to move between pages</footer>
+
+  <script src="js/app.js"></script>
 
 </body>
+
 </html>

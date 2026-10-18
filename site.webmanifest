@@ -7,6 +7,6 @@
     "sizes": "192x192"
   }],
   "start_url": "/?utm_source=homescreen",
-  "background_color": "#fafafa",
-  "theme_color": "#fafafa"
+  "background_color": "#fff9e6",
+  "theme_color": "#003366"
 }

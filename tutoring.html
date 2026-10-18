@@ -1,51 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mateo Asin Unlu - Tutoring</title>
+  <title>Mateo Asin - Tutoring</title>
+  <script>
+    // Pick the theme before the page draws: the saved choice, otherwise the computer's setting.
+    (function () {
+      let theme = null;
+      try { theme = localStorage.getItem("theme"); } catch (error) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
+  <meta name="description" content="GCSE and A-level mathematics tutoring with Mateo Asin, in London or remotely.">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
 
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <meta name="theme-color" content="#fff9e6">
 </head>
+
 <body>
-<header>
-  <h1>Mateo Asin</h1>
-  <nav class="nav-bar">
-    <a href="index.html" class="nav-btn">Home</a>
-    <a href="cv.html" class="nav-btn">CV</a>
-    <a href="tutoring.html" class="nav-btn">Tutoring</a>
-    <a href="contact.html" class="nav-btn">Contact</a>
-  </nav>
-</header>
 
-<main>
-  <h2>Tutoring</h2>
-  <p>I also provide mathematics tutoring services for children preparing for their A-levels or GCSE's. I have
-    learning materials prepared for both AQA and the OCR exam boards and I am willing to tutor in person within
-    London or remotely.</p>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">MA</span>
+      <span class="brand-text">
+        <strong>Mateo Asin</strong>
+      </span>
+    </a>
 
-  <p>If you are interested or know anyone who might be interested in mathematics tutoring services for their child
-    feel free to email me at <a href="mailto:mateoasin212@gmail.com">mateoasin212@gmail.com</a>, and we can arrange a
-    meeting.
-  </p>
+    <nav class="nav" aria-label="Pages">
+      <a href="index.html" class="chip">Home</a>
+      <a href="cv.html" class="chip">CV</a>
+      <a href="tutoring.html" class="chip" aria-current="page">Tutoring</a>
+      <a href="contact.html" class="chip">Contact</a>
+    </nav>
 
-  <p> I would also be willing to teach GCSE level Spanish or computer science.</p>
+    <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path fill="currentColor" d="M21 14.5A9 9 0 0 1 9.5 3a.6.6 0 0 0-.8-.7A10 10 0 1 0 21.7 15.3a.6.6 0 0 0-.7-.8Z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.5" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </g>
+      </svg>
+    </button>
+  </header>
 
+  <main class="page">
+    <section class="hero card">
+      <h1>Tutoring</h1>
+      <p class="lead">I also provide mathematics tutoring services for children preparing for their A-levels or GCSE's. I have
+        learning materials prepared for both AQA and the OCR exam boards and I am willing to tutor in person within
+        London or remotely.</p>
+    </section>
 
-</main>
+    <div class="tile-grid">
+      <section class="card section">
+        <span class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="3"/>
+            <path d="m4 7 8 6 8-6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <p>If you are interested or know anyone who might be interested in mathematics tutoring services for their child
+          feel free to email me at <a href="mailto:mateoasin212@gmail.com">mateoasin212@gmail.com</a>, and we can arrange a
+          meeting.</p>
+        <div class="button-row">
+          <a class="pill-button" href="mailto:mateoasin212@gmail.com">Email me</a>
+        </div>
+      </section>
+
+      <section class="card section">
+        <span class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 5h11a3 3 0 0 1 3 3v11H7a3 3 0 0 1-3-3V5Z"/>
+            <path d="M8 9h6M8 13h4"/>
+          </svg>
+        </span>
+        <p>I would also be willing to teach GCSE level Spanish or computer science.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">Tip: use the <kbd>←</kbd> <kbd>→</kbd> arrow keys to move between pages</footer>
+
+  <script src="js/app.js"></script>
 
 </body>
+
 </html>
